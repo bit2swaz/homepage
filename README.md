@@ -1,32 +1,58 @@
 # Portfolio Template
 
-A fully responsive portfolio template built with HTML and CSS. This template includes a header section with profile information, a projects section to showcase your work, and a contact section.
+A fully responsive dark-themed portfolio website built with HTML, CSS, and minimal JavaScript. This template features a clean, modern design with subtle animations and a typewriter effect.
+
+## Live Demo
+
+Check out the live demo: [https://bit2swaz.github.io/homepage/](https://bit2swaz.github.io/homepage/)
 
 ## Features
 
 - Responsive design for mobile, tablet, and desktop
-- Clean and modern UI
+- Dark mode aesthetic with carefully selected color palette
+- Interactive typewriter effect that cycles through multiple phrases
+- Subtle animations and hover effects
+- Project showcase with external links
+- Social media integration
 - Semantic HTML5 structure
 - Mobile-first CSS approach
-- Google Fonts integration (Playfair Display for headings, Roboto for body text)
-- Project cards with hover effects
-- Social media links
-- Contact information section
+- Google Fonts integration (DM Serif Display for headings, Inter for body text)
+- Accessibility considerations including reduced motion support
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Google Fonts
+- SVG icons
 
 ## Usage
 
-1. Replace placeholder images with your own
-2. Update personal information (name, title, about me)
-3. Add your own projects with descriptions
-4. Update contact information and social media links
+1. Clone the repository
+2. Replace placeholder images with your own
+3. Update personal information (name, about me, contact details)
+4. Add your own projects with descriptions and links
+5. Customize the typewriter phrases in the JavaScript section
 
 ## Customization
 
 - Colors can be modified in the CSS variables at the top of the styles.css file
 - Fonts can be changed by updating the Google Fonts link in the HTML head and the font-family properties in CSS
-- Layout and spacing can be adjusted in the respective CSS sections
+- Typewriter phrases can be edited in the JavaScript section
+- Project cards can be added or removed as needed
+
+## Performance Considerations
+
+- Optimized animations with `will-change` property
+- Support for users who prefer reduced motion
+- Minimal JavaScript for essential functionality only
 
 ## Credits
 
 - Icons from [Material Design Icons](https://materialdesignicons.com/) and [Devicon](https://devicon.dev/)
-- Placeholder images from [Pexels](https://www.pexels.com/)
+- Fonts from [Google Fonts](https://fonts.google.com/)
+
+## License
+
+MIT
