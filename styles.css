@@ -1,13 +1,13 @@
 /* Base Styles */
 :root {
-    --primary-color: #5d5dff;
-    --secondary-color: #33363a;
-    --text-color: #4f5e64;
-    --light-text: #717d86;
-    --background-color: #ffffff;
-    --section-bg: #f8f9fa;
-    --border-color: #e9ecef;
-    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --primary-color: #8ab4f8;
+    --secondary-color: #e0e0e0;
+    --text-color: #b0b0b0;
+    --light-text: #909090;
+    --background-color: #121212;
+    --section-bg: #1a1a1a;
+    --border-color: #2a2a2a;
+    --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --transition: all 0.3s ease;
 }
 
@@ -144,7 +144,7 @@ a:hover {
 /* My Work Section */
 .my-work {
     padding: 3rem 0;
-    background-color: var(--section-bg);
+    background-color: var(--background-color);
     text-align: center;
 }
 
@@ -156,7 +156,7 @@ a:hover {
 }
 
 .project-card {
-    background-color: var(--background-color);
+    background-color: var(--section-bg);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
@@ -229,7 +229,7 @@ a:hover {
 /* Contact Section */
 .contact {
     padding: 3rem 0;
-    background-color: var(--background-color);
+    background-color: var(--section-bg);
     text-align: center;
 }
 
@@ -273,7 +273,7 @@ a:hover {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--section-bg);
+    background-color: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,6 +288,7 @@ a:hover {
 .social-link img {
     width: 24px;
     height: 24px;
+    filter: brightness(0) invert(0.9);
 }
 
 .social-link:hover img {
