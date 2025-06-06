@@ -168,7 +168,7 @@ I'm Aditya — a caffeine-fueled code monk on a mission to break mediocrity with
             let phraseIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
-            let typingSpeed = 50; // milliseconds per character
+            let typingSpeed = 45; // milliseconds per character
             
             function typeWriter() {
                 const currentPhrase = phrases[phraseIndex];
@@ -182,7 +182,7 @@ I'm Aditya — a caffeine-fueled code monk on a mission to break mediocrity with
                     // Typing text
                     typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
                     charIndex++;
-                    typingSpeed = 50; // normal typing speed
+                    typingSpeed = 45; // normal typing speed
                 }
                 
                 // If we've finished typing the current phrase
