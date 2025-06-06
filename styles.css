@@ -9,7 +9,6 @@
     --border-color: #2a2a2a;
     --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --transition: all 0.3s ease;
-    --animation-timing: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 * {
@@ -19,7 +18,7 @@
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--background-color);
@@ -27,7 +26,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'DM Serif Display', 'Georgia', serif;
+    font-family: 'Playfair Display', serif;
     color: var(--secondary-color);
     margin-bottom: 1rem;
     font-weight: 600;
@@ -42,7 +41,6 @@ h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     position: relative;
-    transition: transform 0.5s var(--animation-timing), opacity 0.5s var(--animation-timing);
 }
 
 h2::after {
@@ -53,16 +51,11 @@ h2::after {
     width: 60px;
     height: 3px;
     background-color: var(--primary-color);
-    transition: width 0.4s var(--animation-timing);
 }
 
 .my-work h2::after, .contact h2::after {
     left: 50%;
     transform: translateX(-50%);
-}
-
-h2:hover::after {
-    width: 80px;
 }
 
 h3 {
@@ -100,20 +93,6 @@ a:hover {
 .header {
     padding: 3rem 0;
     background-color: var(--background-color);
-    position: relative;
-    overflow: hidden;
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(138, 180, 248, 0.05) 0%, rgba(18, 18, 18, 0) 70%);
-    z-index: 0;
-    transform: translateZ(0);
 }
 
 .profile {
@@ -121,8 +100,6 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    position: relative;
-    z-index: 1;
 }
 
 .profile-image {
@@ -133,19 +110,12 @@ a:hover {
     margin-bottom: 1.5rem;
     border: 3px solid var(--primary-color);
     box-shadow: var(--card-shadow);
-    transition: transform 0.4s var(--animation-timing), box-shadow 0.4s var(--animation-timing);
-}
-
-.profile-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(138, 180, 248, 0.15);
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: filter 0.5s var(--animation-timing);
 }
 
 .profile-content {
@@ -190,33 +160,10 @@ a:hover {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
-    transition: transform 0.4s var(--animation-timing), box-shadow 0.4s var(--animation-timing);
+    transition: var(--transition);
     height: 100%;
     display: flex;
     flex-direction: column;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s var(--animation-timing) forwards;
-}
-
-.project-card:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.project-card:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.project-card:nth-child(4) {
-    animation-delay: 0.3s;
-}
-
-.project-card:nth-child(5) {
-    animation-delay: 0.4s;
-}
-
-.project-card:nth-child(6) {
-    animation-delay: 0.5s;
 }
 
 .project-card:hover {
@@ -233,7 +180,7 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s var(--animation-timing);
+    transition: var(--transition);
 }
 
 .project-card:hover .project-image img {
@@ -266,11 +213,6 @@ a:hover {
     font-weight: 500;
     font-size: 0.95rem;
     align-self: flex-start;
-    transition: transform 0.3s var(--animation-timing);
-}
-
-.project-link:hover {
-    transform: translateX(3px);
 }
 
 .project-link::after {
@@ -282,11 +224,6 @@ a:hover {
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 0.5rem;
-    transition: transform 0.3s var(--animation-timing);
-}
-
-.project-link:hover::after {
-    transform: translateX(2px);
 }
 
 /* Contact Section */
@@ -306,11 +243,6 @@ a:hover {
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    transition: transform 0.3s var(--animation-timing);
-}
-
-.contact-item:hover {
-    transform: translateY(-2px);
 }
 
 .contact-icon {
@@ -323,7 +255,6 @@ a:hover {
     width: 100%;
     height: 100%;
     opacity: 0.8;
-    filter: brightness(0) invert(0.9);
 }
 
 .contact-item p {
@@ -346,51 +277,22 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s var(--animation-timing), background-color 0.3s var(--animation-timing);
+    transition: var(--transition);
 }
 
 .social-link:hover {
     background-color: var(--primary-color);
-    transform: translateY(-3px) scale(1.1);
+    transform: translateY(-3px);
 }
 
 .social-link img {
     width: 24px;
     height: 24px;
-    filter: brightness(0) invert(0.9);
-    transition: filter 0.3s var(--animation-timing);
+    filter: brightness(0) invert(1);
 }
 
 .social-link:hover img {
     filter: brightness(0) invert(1);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Reduce animations for users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    
-    .project-card {
-        opacity: 1;
-        transform: translateY(0);
-        animation: none;
-    }
 }
 
 /* Tablet Styles */
