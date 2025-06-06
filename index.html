@@ -134,5 +134,27 @@ I'm Aditya — a caffeine-fueled code monk on a mission to break mediocrity with
             </div>
         </div>
     </footer>
+    
+    <script>
+        // Add animation classes on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial project card animations
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.style.setProperty('--card-index', index + 1);
+            });
+            
+            // Parallax effect for header
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+                    const scrollPosition = window.scrollY;
+                    if (scrollPosition < 500) {
+                        header.style.backgroundPositionY = scrollPosition * 0.05 + 'px';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

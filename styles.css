@@ -11,6 +11,33 @@
     --transition: all 0.3s ease;
 }
 
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtlePulse {
+    0% {
+        transform: scale(1);
+        box-shadow: var(--card-shadow);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: var(--card-shadow);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -35,12 +62,14 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
+    animation: fadeIn 0.8s ease-out;
 }
 
 h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     position: relative;
+    animation: fadeIn 0.8s ease-out;
 }
 
 h2::after {
@@ -51,6 +80,11 @@ h2::after {
     width: 60px;
     height: 3px;
     background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+h2:hover::after {
+    width: 80px;
 }
 
 .my-work h2::after, .contact h2::after {
@@ -93,6 +127,19 @@ a:hover {
 .header {
     padding: 3rem 0;
     background-color: var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(138, 180, 248, 0.05) 0%, rgba(18, 18, 18, 0) 70%);
+    z-index: 0;
 }
 
 .profile {
@@ -100,6 +147,8 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .profile-image {
@@ -110,16 +159,27 @@ a:hover {
     margin-bottom: 1.5rem;
     border: 3px solid var(--primary-color);
     box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    animation: subtlePulse 2s infinite;
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile-image:hover img {
+    transform: scale(1.05);
 }
 
 .profile-content {
     max-width: 600px;
+    animation: fadeIn 1s ease-out;
 }
 
 .title {
@@ -128,12 +188,16 @@ a:hover {
     margin-bottom: 1.5rem;
     font-weight: 500;
     letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.2s forwards;
 }
 
 .about-me {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border-color);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.4s forwards;
 }
 
 .about-me p {
@@ -160,15 +224,26 @@ a:hover {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
-    transition: var(--transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: calc(0.1s * var(--card-index, 0));
+    will-change: transform, opacity;
 }
+
+.project-card:nth-child(1) { --card-index: 1; }
+.project-card:nth-child(2) { --card-index: 2; }
+.project-card:nth-child(3) { --card-index: 3; }
+.project-card:nth-child(4) { --card-index: 4; }
+.project-card:nth-child(5) { --card-index: 5; }
+.project-card:nth-child(6) { --card-index: 6; }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .project-image {
@@ -180,7 +255,7 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image img {
@@ -197,6 +272,11 @@ a:hover {
 
 .project-content h3 {
     margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-content h3 {
+    color: var(--primary-color);
 }
 
 .project-content p {
@@ -213,6 +293,11 @@ a:hover {
     font-weight: 500;
     font-size: 0.95rem;
     align-self: flex-start;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-link:hover {
+    transform: translateX(3px);
 }
 
 .project-link::after {
@@ -224,6 +309,11 @@ a:hover {
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover::after {
+    transform: translateX(2px);
 }
 
 /* Contact Section */
@@ -236,6 +326,8 @@ a:hover {
 .contact-info {
     margin-bottom: 2rem;
     margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
 }
 
 .contact-item {
@@ -243,23 +335,43 @@ a:hover {
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-2px);
 }
 
 .contact-icon {
     width: 24px;
     height: 24px;
     margin-right: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.1);
 }
 
 .contact-icon img {
     width: 100%;
     height: 100%;
     opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.contact-item:hover .contact-icon img {
+    opacity: 1;
 }
 
 .contact-item p {
     margin-bottom: 0;
     color: var(--light-text);
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover p {
+    color: var(--secondary-color);
 }
 
 .social-links {
@@ -267,6 +379,8 @@ a:hover {
     justify-content: center;
     gap: 1.5rem;
     margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
 }
 
 .social-link {
@@ -277,22 +391,39 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    will-change: transform;
 }
 
 .social-link:hover {
     background-color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-5px) scale(1.1);
 }
 
 .social-link img {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
 }
 
 .social-link:hover img {
     filter: brightness(0) invert(1);
+    transform: scale(1.1);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .profile-image:hover {
+        animation: none;
+    }
 }
 
 /* Tablet Styles */
